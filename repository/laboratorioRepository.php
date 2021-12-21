@@ -72,7 +72,7 @@ class LaboratorioRepository {
 
     public function getExperimentoApontarParamsByCodSessaoExperimento($codigo) {
         $params = $this->db->select('experimento_apontar_parametros',
-                ["cod_sessao_experimento", "algoritmo_busca", "kp", "kd", "ki", "obstaculos", "dt_criacao", "heuristica", "tamanho_mapa_busca", "tamanho_area_seguranca", "estatisticas_busca"],
+                ["cod_sessao_experimento", "algoritmo_busca", "tipo_controlador","kp_ang", "kd_ang", "ki_ang", "kp", "kd", "ki", "obstaculos", "dt_criacao", "heuristica", "tamanho_mapa_busca", "tamanho_area_seguranca", "estatisticas_busca"],
                 ["cod_sessao_experimento" => $codigo]);
         return $params[0];
     }
@@ -100,6 +100,10 @@ class LaboratorioRepository {
                     "kp" => $experimentoApontar->getKp(),
                     "kd" => $experimentoApontar->getKd(),
                     "ki" => $experimentoApontar->getKi(),
+                    "kp_ang" => $experimentoApontar->getKp_ang(),
+                    "kd_ang" => $experimentoApontar->getKd_ang(),
+                    "ki_ang" => $experimentoApontar->getKi_ang(),
+                    "tipo_controlador" => $experimentoApontar->getTipoControlador(),
                     "heuristica" => $experimentoApontar->getHeuristica(),
                     "tamanho_mapa_busca" => $experimentoApontar->getTamanhoMapaBusca(),
                     "tamanho_area_seguranca" => $experimentoApontar->getTamanhoAreaSeguranca(),
@@ -133,6 +137,10 @@ class LaboratorioRepository {
                     "kp" => $experimentoApontar->getKp(),
                     "kd" => $experimentoApontar->getKd(),
                     "ki" => $experimentoApontar->getKi(),
+                    "kp_ang" => $experimentoApontar->getKp_ang(),
+                    "kd_ang" => $experimentoApontar->getKd_ang(),
+                    "ki_ang" => $experimentoApontar->getKi_ang(),
+                    "tipo_controlador" => $experimentoApontar->getTipoControlador(),
                     "heuristica" => $experimentoApontar->getHeuristica(),
                     "tamanho_mapa_busca" => $experimentoApontar->getTamanhoMapaBusca(),
                     "tamanho_area_seguranca" => $experimentoApontar->getTamanhoAreaSeguranca(),

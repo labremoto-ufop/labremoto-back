@@ -6,23 +6,31 @@ class ExperimentoApontarParametros {
     public $objetivoX;
     public $objetivoY;
     public $algoritmoBusca;
+    public $tipoControlador;
     public $obstaculos;
     public $heuristica;
     public $kp;
     public $kd;
     public $ki;
+    public $kp_ang;
+    public $kd_ang;
+    public $ki_ang;
     public $tamanhoMapaBusca;
     public $tamanhoAreaSeguranca;
     public $dtCriacao;
     public $estatisticasBusca;
 
-    function __construct($codSessaoExperimento = null, $algoritmoBusca = null, $obstaculos = null, $kp = null, $kd = null, $ki = null, $tamanhoMapaBusca = null, $tamanhoAreaSeguranca = null, $heuristica = null, $dtCriacao = null, $estatisticaBusca = null) {
+    function __construct($codSessaoExperimento = null, $tipoControlador = null, $algoritmoBusca = null, $obstaculos = null, $kp_ang = null, $kd_ang = null, $ki_ang = null, $kp = null, $kd = null, $ki = null, $tamanhoMapaBusca = null, $tamanhoAreaSeguranca = null, $heuristica = null, $dtCriacao = null, $estatisticaBusca = null) {
         $this->codSessaoExperimento = $codSessaoExperimento;
         $this->algoritmoBusca = $algoritmoBusca;
+        $this->tipoControlador = $tipoControlador;
         $this->obstaculos = $obstaculos;
         $this->kp = $kp;
         $this->kd = $kd;
         $this->ki = $ki;
+        $this->kp_ang = $kp_ang;
+        $this->kd_ang = $kd_ang;
+        $this->ki_ang = $ki_ang;
         $this->tamanhoMapaBusca = $tamanhoMapaBusca;
         $this->tamanhoAreaSeguranca = $tamanhoAreaSeguranca;
         $this->dtCriacao = $dtCriacao;
@@ -52,6 +60,18 @@ class ExperimentoApontarParametros {
 
     function getKi() {
         return $this->ki;
+    } 
+    
+    function getKp_ang() {
+        return $this->kp_ang;
+    }
+
+    function getKd_ang() {
+        return $this->kd_ang;
+    }
+
+    function getKi_ang() {
+        return $this->ki_ang;
     }
 
     function getTamanhoMapaBusca() {
@@ -89,6 +109,20 @@ class ExperimentoApontarParametros {
     function setKi($ki) {
         $this->ki = $ki;
     }
+
+
+    function setKp_ang($kp) {
+        $this->kp_ang = $kp;
+    }
+
+    function setKd_ang($kd) {
+        $this->kd_ang = $kd;
+    }
+
+    function setKi_ang($ki) {
+        $this->ki_ang = $ki;
+    }
+
 
     function setTamanhoMapaBusca($tamanhoMapaBusca) {
         $this->tamanhoMapaBusca = $tamanhoMapaBusca;
@@ -133,5 +167,16 @@ class ExperimentoApontarParametros {
     function setEstatisticaBusca($estatisticaBusca) {
         $this->estatisticasBusca = $estatisticaBusca;
     }
+
+    function getTipoControlador() {
+        return $this->tipoControlador;
+    }
+
+    function setTipoControlador($tipoControlador) {
+        $this->tipoControlador = $tipoControlador;
+    }
+
+
+
 
 }

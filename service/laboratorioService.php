@@ -186,6 +186,10 @@ class LaboratorioService {
                 $params->setKp($body->kp);
                 $params->setKd($body->kd);
                 $params->setKi($body->ki);
+                $params->setTipoControlador($body->tipoControlador);
+                $params->setKp_ang($body->kp_ang);
+                $params->setKd_ang($body->kd_ang);
+                $params->setKi_ang($body->ki_ang);
                 $params->setObjetivoX($body->objetivoX);
                 $params->setObjetivoY($body->objetivoY);
                 $params->setTamanhoMapaBusca($body->mapScale);
@@ -218,6 +222,10 @@ class LaboratorioService {
                 $params->setKp(0.005);
                 $params->setKd(0.0002);
                 $params->setKi(0.00003);
+                $params->setKp_ang(0.5);
+                $params->setKd_ang(0.0002);
+                $params->setKi_ang(0.00003);
+                $params->setTipoControlador(1);
                 $params->setTamanhoMapaBusca(5);
                 $params->setTamanhoAreaSeguranca(5);
                 return $this->repository->createExperimentoApontarParametro($params);
@@ -250,8 +258,11 @@ class LaboratorioService {
             case 1:
                 $paramArr = $this->repository->getExperimentoApontarParamsByCodSessaoExperimento($codExperimento);
                 return new ExperimentoApontarParametros($paramArr["cod_sessao_experimento"],
+                        $paramArr["tipo_controlador"],
                         $paramArr["algoritmo_busca"],
                         $paramArr["obstaculos"],
+                        $paramArr["kp_ang"], $paramArr["kd_ang"], 
+                        $paramArr["ki_ang"],
                         $paramArr["kp"], $paramArr["kd"], 
                         $paramArr["ki"], $paramArr["tamanho_mapa_busca"], 
                         $paramArr["tamanho_area_seguranca"], $paramArr["heuristica"]
