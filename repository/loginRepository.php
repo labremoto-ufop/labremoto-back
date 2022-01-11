@@ -26,6 +26,28 @@ class LoginRepository {
         $user = $this->db->select('usuario', '*', ["matricula" => $login, "senha" => $password]);
         return $user;
     }
+
+    public function findUserById($login) {
+        $user = $this->db->select('usuario', '*', ["matricula" => $login]);
+        return $user;
+    }
+
+
+    public function insertUser($login, $password, $email, $username) {
+        $password = md5("h4sh");
+        if ($this->db->insert("usuario", [
+            "matricula" => $login,
+            "senha" => $password,
+            "nome" => $username,
+            "email" => $email,
+            "tipo_usuario" => 0,
+            "dt_criacao" => date('Y-m-d')
+        ]) == true) {
+    return true;
+} else {
+    return false;
+}
+    }
     
 }
 
