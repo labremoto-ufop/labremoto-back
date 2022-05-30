@@ -219,7 +219,7 @@ class LaboratorioService {
                 $params->setAlgoritmoBusca(1);
                 $params->setHeuristica(1);
                 $params->setObstaculos(true);
-                $params->setKp(0.005);
+                $params->setKp(0.001);
                 $params->setKd(0.0002);
                 $params->setKi(0.00003);
                 $params->setKp_ang(0.5);
